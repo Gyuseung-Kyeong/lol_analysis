@@ -1,2 +1,1 @@
-# lol_analysis
-League of Legend analysis with Bayesian view
+# League of Legend analysis : recommend picking champion with Bayesian view
