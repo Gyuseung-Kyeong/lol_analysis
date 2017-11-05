@@ -15,7 +15,7 @@
         - 한 챔피언을 골랐을 때 승률.
       - likelihood (= pick_champion_win_rate)
         - 내가 고른 챔피언이 있는 경우에 한해 내가 픽하기 전에 우리팀과 다른팀 픽한 챔피언들이 있는 게임의 승률.
-      - evidence ( = pick_champion_win_rate ***** champion_win_rate + without_pick_champion_win_rate ***** (1 - champion_win_rate)
+      - evidence ( = pick_champion_win_rate * champion_win_rate + without_pick_champion_win_rate * (1 - champion_win_rate)
         - 우리팀과 상대팀이 챔피언들을 골랐을 때 승률.
 - Recommend champion
     - expect_win_rate(= posterior probability)을 이용해 어떤 챔피언을 내가 픽 했을 때 예상 승률 계산.
