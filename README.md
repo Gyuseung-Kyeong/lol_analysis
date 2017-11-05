@@ -8,17 +8,17 @@
   - 팀별 픽한 챔피언과 승리 여부를 모았다.
 - 분석방향
   - Bayes’ theorem을 활용하여 주어진 상황에서 내가 어떤 챔피언을 고를 경우 승률을 예측하고 싶다.
-  - Expect win rate(= posterior probability)
-    - Champion win rate(= prior probability) * Pick champion win rate(= likelihood) / Champions win rate(= evidence)
+  - posterior probability( = expect_win_rate)
+    - prior probability * likelihood / evidence
     - 우리팀과 상대팀이 챔피언 픽을 한 상태에서 내 픽 차례가 왔을 경우 특정 챔피언의 예상되는 승률.
-      - Champion win rate(= prior probability)
+      - prior probability( = champion_win_rate)
         - 한 챔피언을 골랐을 때 승률.
-      - Champions win rate(= evidence)
-        - 우리팀과 상대팀이 챔피언들을 골랐을 때 승률.
-      - Pick champion win rate(= likelihood)
+      - likelihood (= pick_champion_win_rate)
         - 내가 고른 챔피언이 있는 경우에 한해 내가 픽하기 전에 우리팀과 다른팀 픽한 챔피언들이 있는 게임의 승률.
-  - Recommend champion
-    - Expect win rate(= posterior probability)을 이용해 어떤 챔피언을 내가 픽 했을 때 예상 승률 계산.
+      - evidence ( = pick_champion_win_rate ***** champion_win_rate + without_pick_champion_win_rate ***** (1 - champion_win_rate)
+        - 우리팀과 상대팀이 챔피언들을 골랐을 때 승률.
+- Recommend champion
+    - expect_win_rate(= posterior probability)을 이용해 어떤 챔피언을 내가 픽 했을 때 예상 승률 계산.
     - 내림차순으로 상위 5개 챔피언을 보여준다.
     - 다만 게임 플레이 수가 300회 이상인 챔피언만 보여준다.
       - 아트록스 같은 경우 일반적으로 좋지 않은 챔피언이지만 장인들이 사용해서 게임수는 적으나 승률이 높을 수 있다.
@@ -32,7 +32,7 @@
 - 부족한점
   - 챔피언을 고르는 행위가 어떤 챔피언이 앞에 픽이 되었는지와 상관없이 독립적인 선택이라는 강력한 가정이 들어가 있다.
     - 하지만 현실은 우리팀이 알리스타나 말파이트를 고르면 야스오 픽이지.
-  - 본인의 포지션별로 추천해주지는 못한다. 이것 역시도 셈플이 더 많다고 하면 포지션에 따른 픽 셈플을 가지고 분석이 가능하다.
+  - 본인의 포지션별로 추천해주지는 못했다. 이것 역시도 셈플이 더 많다고 하면 포지션에 따른 픽 셈플을 가지고 분석이 가능하다.
   - 프로게이머들에게는 부적합하다. 개인화되어야 할 필요가 있다.
   - 함수가 세부 기능 단위로 나뉘어져 있지 않아서 가독성이 떨어진다.
   - 현재 Riot에서 제공하는 데이터로는 픽 순서를 파악할 수 없다.
@@ -40,4 +40,4 @@
   - 난 피지컬이 부족하기에 어떻게 하면 피지컬을 제외한 부분에서 효과적인 전략을 세울 수 있는 부분이 무엇일까를 고민하다 본 분석을 시작하게 되었다.
     - 하지만 그 챔피언의 숙련도가 떨어진다면 소용없다는 건 함정.
   - 프로게임단 코치들은 벤픽 전략을 어떻게 세우는지 궁금하다.
-  - 2017.11.04 2017년 롤드컵 결승전이 얼마 안남았다. SKT 화이팅! 울프 선수 화이팅.
+  - 2017.11.04 2017년 롤드컵 결승전이 얼마 안남았다. SKT 화이팅! 울프 선수 화이팅!
